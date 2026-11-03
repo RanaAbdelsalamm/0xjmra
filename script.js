@@ -103,14 +103,14 @@ function renderPosts() {
       return `
         <article class="post-card${isOpen ? " is-open" : ""}" data-post-card="${escapeHtml(post.path)}">
           <div class="post-card-header">
-            <button class="post-toggle" type="button" data-post-toggle="${escapeHtml(post.path)}" aria-expanded="${isOpen}" aria-controls="${postId}-content">
+            <a class="post-toggle" href="#${escapeHtml(post.path)}" data-post-toggle="${escapeHtml(post.path)}" aria-expanded="${isOpen}" aria-controls="${postId}-content">
               <h2 class="post-title">${escapeHtml(post.title)}</h2>
               <p class="post-excerpt">${escapeHtml(post.excerpt)}</p>
               <div class="post-meta" aria-label="Post metadata">
                 <span>${escapeHtml(formatDate(post.date))}</span>
                 <span>${escapeHtml(post.category)}</span>
               </div>
-            </button>
+            </a>
           </div>
           <div class="post-expand" id="${postId}-content">
             <div class="post-expand-inner">
@@ -157,7 +157,11 @@ filterButtons.forEach((button) => {
 
 feed.addEventListener("click", (event) => {
   const toggle = event.target.closest("[data-post-toggle]");
-  if (toggle) togglePost(toggle.dataset.postToggle);
+  if (toggle) {
+    event.preventDefault();
+    togglePost(toggle.dataset.postToggle);
+    window.history.pushState(null, null, `#${toggle.dataset.postToggle}`);
+  }
 });
 
 openSummaryButton.addEventListener("click", openModal);
@@ -173,6 +177,8 @@ document.addEventListener("keydown", (event) => {
 loadPosts()
   .then((posts) => {
     state.posts = posts;
+    const hash = window.location.hash.substring(1);
+    if (hash) state.openPost = hash;
     renderPosts();
   })
   .catch((error) => {
