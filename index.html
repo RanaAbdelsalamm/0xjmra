@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="0xjmra's technical blog covering cloud, security, and systems." />
+    <title>0xjmra's blog</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="site-shell">
+      <aside class="sidebar" aria-label="Profile sidebar">
+        <a class="wordmark" href="./" aria-label="0xjmra's blog home">0xjmra's blog</a>
+
+        <div class="profile-block">
+          <div class="avatar-frame">
+            <img src="assets/avatar.jpg" alt="0xjmra profile picture" />
+          </div>
+          <p class="profile-name">0xjmra</p>
+
+          <div class="profile-actions">
+            <button class="outline-button" type="button" data-open-summary>summary</button>
+            <a class="outline-button" href="https://ranaabdelsalamm.github.io/portfolio/">portfolio</a>
+          </div>
+        </div>
+
+        <p class="sidebar-note">cloud / security / systems</p>
+      </aside>
+
+      <main class="main-content">
+        <header class="content-header">
+          <nav class="category-nav" aria-label="Filter posts by category">
+            <button class="filter-button is-active" type="button" data-category="all" aria-pressed="true">ALL</button>
+            <button class="filter-button" type="button" data-category="Security" aria-pressed="false">Security</button>
+            <button class="filter-button" type="button" data-category="Cloud" aria-pressed="false">Cloud</button>
+            <button class="filter-button" type="button" data-category="Systems" aria-pressed="false">Systems</button>
+          </nav>
+
+          <div class="social-links" aria-label="Social links">
+            <a class="social-link" href="https://tryhackme.com/p/jmra?utm_campaign=social_share&utm_medium=social&utm_content=profile&cardVersion=3b4028e1862c&utm_source=copy&sharerId=64cc7fdc9af3f30054e1d7a2" target="_blank" rel="noreferrer" aria-label="TryHackMe profile" title="TryHackMe">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.1 18.4a4.6 4.6 0 1 1 .78-9.13A5.75 5.75 0 0 1 18.9 11a3.7 3.7 0 0 1-.35 7.38H7.1Zm0-1.7h11.44a2 2 0 0 0 .05-4 1.2 1.2 0 0 0-.32.04l-1.05.18-.12-1.06a4.05 4.05 0 0 0-7.98-.48l-.24 1.02-1-.23a2.9 2.9 0 1 0-.78 5.73Zm1.7-1.6 1.7-1.7-1.7-1.7 1.2-1.2 2.9 2.9-2.9 2.9-1.2-1.2Zm4.2 0h3.3v-1.7H13v1.7Z" /></svg>
+            </a>
+            <a class="social-link" href="https://github.com/RanaAbdelsalamm" target="_blank" rel="noreferrer" aria-label="GitHub profile" title="GitHub">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.4a9.6 9.6 0 0 0-3.04 18.7c.48.09.66-.21.66-.46v-1.7c-2.68.58-3.25-1.14-3.25-1.14-.44-1.11-1.07-1.4-1.07-1.4-.87-.6.07-.59.07-.59.96.07 1.47.99 1.47.99.85 1.47 2.24 1.05 2.79.8.09-.62.33-1.05.61-1.3-2.14-.24-4.39-1.07-4.39-4.77 0-1.05.38-1.91 1-2.58-.1-.24-.43-1.22.1-2.54 0 0 .82-.26 2.64.98A9.2 9.2 0 0 1 12 6.07a9.2 9.2 0 0 1 2.4.32c1.82-1.24 2.64-.98 2.64-.98.53 1.32.2 2.3.1 2.54.62.67 1 1.53 1 2.58 0 3.71-2.26 4.52-4.41 4.76.34.3.65.88.65 1.78v2.64c0 .26.17.56.67.46A9.6 9.6 0 0 0 12 2.4Z" /></svg>
+            </a>
+            <a class="social-link" href="https://www.linkedin.com/in/rana-abdelsalam-23853725b/" target="_blank" rel="noreferrer" aria-label="LinkedIn profile" title="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.4 5.7a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4ZM2.9 21.7h3V8.1h-3v13.6ZM8 8.1h2.9v1.86h.04c.4-.76 1.38-2.18 3.57-2.18 3.82 0 4.52 2.51 4.52 5.77v8.15h-3v-7.23c0-1.72-.03-3.93-2.4-3.93-2.4 0-2.77 1.87-2.77 3.8v7.36H8V8.1Z" /></svg>
+            </a>
+          </div>
+        </header>
+
+        <section class="feed-section" aria-labelledby="feed-title">
+          <div class="feed-heading">
+            <div>
+              <p class="eyebrow">field notes / 0xjmra</p>
+              <h1 id="feed-title">Latest posts</h1>
+            </div>
+            <p class="post-count" data-post-count>Loading…</p>
+          </div>
+          <div class="post-feed" data-post-feed aria-live="polite">
+            <div class="loading-state">Reading the notebook<span class="loading-dots" aria-hidden="true">...</span></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" data-summary-modal hidden>
+      <section class="summary-modal" role="dialog" aria-modal="true" aria-labelledby="summary-title">
+        <button class="modal-close" type="button" data-close-summary aria-label="Close summary">&times;</button>
+        <p class="eyebrow">about / 0xjmra</p>
+        <h2 id="summary-title">summary</h2>
+        <p>Computer Science graduates with hands-on experience in cloud infrastructure, AI/ML development, and system administration across Microsoft Azure, AWS and Huawei Cloud platforms. Developer of an AI healthcare platform integrating on-device ML and Generative AI. Experienced in delivering cloud security solutions, disaster recovery architecture, and scalable applications. Seeking to contribute technical expertise in cloud administration and intelligent system development.</p>
+      </section>
+    </div>
+  </body>
+</html>
