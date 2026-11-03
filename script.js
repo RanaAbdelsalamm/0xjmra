@@ -56,7 +56,7 @@ function formatDate(value) {
 }
 
 async function loadPosts() {
-  const manifestResponse = await fetch("posts/index.json");
+  const manifestResponse = await fetch("./posts/index.json");
   if (!manifestResponse.ok) throw new Error("Unable to read the post manifest.");
 
   const manifest = await manifestResponse.json();
@@ -66,7 +66,7 @@ async function loadPosts() {
   const posts = await Promise.all(
     entries.map(async (entry) => {
       const path = typeof entry === "string" ? entry : entry.path;
-      const response = await fetch(`posts/${path}`);
+      const response = await fetch(`./posts/${path}`);
       if (!response.ok) throw new Error(`Unable to load ${path}.`);
       const markdown = await response.text();
       const parsed = parseFrontMatter(markdown);
